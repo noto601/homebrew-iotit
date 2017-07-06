@@ -1,5 +1,3 @@
-require "language/go"
-
 class Iotit < Formula
   desc "Go Language's command-line flashing tool for SBCs"
   homepage "https://github.com/xshellinc/iotit"
