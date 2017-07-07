@@ -1,22 +1,11 @@
 class Iotit < Formula
-  desc "Go Language's command-line flashing tool for SBCs"
+  desc "Go Language's command-line flashing tool for SBCs."
   homepage "https://github.com/xshellinc/iotit"
-  url "https://github.com/xshellinc/iotit/archive/0.3.0.tar.gz"
-  sha256 "79ff02045d8bd50f9498f1a52a8795617d7aee010a489ca2cbde4ecfe8a37d2f"
-  head "https://github.com/xshellinc/iotit.git", :branch => "develop"
-
-  depends_on "go" => :build
+  url "https://github.com/xshellinc/iotit/releases/download/v0.3.1/iotit_0.3.1_macos_amd64.tar.gz"
+  version "0.3.1"
+  sha256 "ab60d639993656f9c39a52b7e0a8f4472b34503f9716f1a29f8b33696cf469f0"
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/xshellinc/iotit").install buildpath.children
-    cd "src/github.com/xshellinc/iotit" do
-      ldflags = "-s -w -X main.version=#{version}"
-      system "go", "build", "-ldflags", ldflags, "-o", bin/"iotit"
-    end
-  end
-
-  test do
-    system bin/"iotit", "-v"
+    bin.install "iotit"
   end
 end
